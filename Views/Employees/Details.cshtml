@@ -1,0 +1,50 @@
+﻿@model InventoryV3.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeFname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeFname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeLname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeLname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Branch1.BranchName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Branch1.BranchName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department1.DepartmentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department1.DepartmentName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

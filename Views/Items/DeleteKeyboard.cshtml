@@ -1,0 +1,80 @@
+﻿@model InventoryV3.Models.Item
+
+@{
+    ViewBag.Title = "Delete Keyboard";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarrantyExpire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarrantyExpire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand1.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand1.BrandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Connectivity1.ConnectivityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Connectivity1.ConnectivityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status1.StatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status1.StatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier1.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier1.SupplierName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("DeleteKeyboard", "Items"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Keyboard")
+        </div>
+    }
+</div>

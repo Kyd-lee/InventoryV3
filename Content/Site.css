@@ -1,0 +1,117 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 20px;
+    padding-right: 5px;
+}
+
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#sidebarUserMenu {
+    margin: 20px 0 5px 5px;
+    
+}
+
+
+#wrapper {
+    margin-left: 150px;
+    -ms-transition: margin-left ease .600s;
+    -o-transition: margin-left ease .600s;
+    -webkit-transition: margin-left ease .600s;
+    transition: margin-left ease .600s;
+}
+
+    #wrapper.hide-sidebar {
+        margin-left: 100px; /*30px due to default bootstrap design*/
+        -moz-transition: margin-left ease .600s;
+        -o-transition: margin-left ease .600s;
+        -webkit-transition: margin-left ease .600s;
+        transition: margin-left ease .600s;
+    }
+
+#sidebar {
+    position: fixed;
+    height: 100%;
+    width: 150px;
+    overflow: hidden;
+    left: 0;
+    margin: 0;
+    -moz-transition: left ease .600s;
+    -o-transition: left ease .600s;
+    -webkit-transition: left ease .600s;
+    transition: left ease .600s;
+}
+
+    #sidebar.hide-sidebar {
+        left: -250px;
+        -moz-transition: left ease .600s;
+        -o-transition: left ease .600s;
+        -webkit-transition: left ease .600s;
+        transition: left ease .600s;
+    }
+
+        .sidebarMenu{
+            list-style-type: none;
+        }
+        .sidebarMenu li a{
+            text-decoration: none;
+        }
+
+            #sidebarToggle{
+                margin: 15px;
+                
+            }
+
+.spacing{
+    margin: 20px 0 5px 0;
+    font-size: 18px;
+}
+
+/*carousal style starts here*/
+.carousel {
+    min-height: 500px;
+    margin-bottom: 60px;
+}
+
+.carousel-caption {
+    z-index: 10;
+    text-align: left;
+    top: 0;
+    right: 10%;
+    left: 10%;
+
+}
+
+.carousel .item {
+    height: 500px;
+    background-color: #222222;
+
+}
+
+.feature-list {
+    list-style: none;
+}
+
+/* Role view css begins below*/
+
+.spacerBody {
+    margin-left: 30px;
+}
+

@@ -1,0 +1,73 @@
+﻿@model InventoryV3.Models.Item
+
+@{
+    ViewBag.Title = "Mouse Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarrantyExpire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarrantyExpire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand1.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand1.BrandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Connectivity1.ConnectivityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Connectivity1.ConnectivityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status1.StatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status1.StatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier1.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier1.SupplierName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditMouse", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Mouse")
+</p>

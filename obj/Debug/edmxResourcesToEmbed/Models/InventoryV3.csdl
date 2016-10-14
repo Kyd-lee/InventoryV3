@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryV3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Assignment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Employee" Type="Int32" />
+    <Property Name="SerialNumber" Type="Int32" />
+    <Property Name="AssignDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Employee1" Relationship="Self.FK__Assignmen__Emplo__7A672E12" FromRole="Assignment" ToRole="Employee" />
+    <NavigationProperty Name="Item" Relationship="Self.FK__Assignmen__Seria__7B5B524B" FromRole="Assignment" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Branch__70DDC3D8" FromRole="Branch" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrandName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Items" Relationship="Self.FK__Item__Brand__73BA3083" FromRole="Brand" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Items" Relationship="Self.FK__Item__Category__76969D2E" FromRole="Category" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Connectivity">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ConnectivityName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Items" Relationship="Self.FK__Item__Connectivi__778AC167" FromRole="Connectivity" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__Depart__6FE99F9F" FromRole="Department" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeFname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EmployeeLname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Department" Type="Int32" />
+    <Property Name="Branch" Type="Int32" />
+    <NavigationProperty Name="Assignments" Relationship="Self.FK__Assignmen__Emplo__7A672E12" FromRole="Employee" ToRole="Assignment" />
+    <NavigationProperty Name="Branch1" Relationship="Self.FK__Employee__Branch__70DDC3D8" FromRole="Employee" ToRole="Branch" />
+    <NavigationProperty Name="Department1" Relationship="Self.FK__Employee__Depart__6FE99F9F" FromRole="Employee" ToRole="Department" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceNumber" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="InvoiceDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="InvoiceDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="InvoiceAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Invoice__6C190EBB" FromRole="Invoice" ToRole="Payment" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SerialNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ItemModel" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ScreenSize" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Processor" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="HDD" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Memory" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="OperatingSystem" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Brand" Type="Int32" />
+    <Property Name="Supplier" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Category" Type="Int32" />
+    <Property Name="Connectivity" Type="Int32" />
+    <Property Name="WarrantyExpire" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Assignments" Relationship="Self.FK__Assignmen__Seria__7B5B524B" FromRole="Item" ToRole="Assignment" />
+    <NavigationProperty Name="Brand1" Relationship="Self.FK__Item__Brand__73BA3083" FromRole="Item" ToRole="Brand" />
+    <NavigationProperty Name="Category1" Relationship="Self.FK__Item__Category__76969D2E" FromRole="Item" ToRole="Category" />
+    <NavigationProperty Name="Connectivity1" Relationship="Self.FK__Item__Connectivi__778AC167" FromRole="Item" ToRole="Connectivity" />
+    <NavigationProperty Name="Status1" Relationship="Self.FK__Item__Status__75A278F5" FromRole="Item" ToRole="Status" />
+    <NavigationProperty Name="Supplier1" Relationship="Self.FK__Item__Supplier__74AE54BC" FromRole="Item" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PaymentDetails" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PaymentDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Invoice" Type="Int32" />
+    <Property Name="Supplier" Type="Int32" />
+    <NavigationProperty Name="Invoice1" Relationship="Self.FK__Payment__Invoice__6C190EBB" FromRole="Payment" ToRole="Invoice" />
+    <NavigationProperty Name="Supplier1" Relationship="Self.FK__Payment__Supplie__6D0D32F4" FromRole="Payment" ToRole="Supplier" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Items" Relationship="Self.FK__Item__Status__75A278F5" FromRole="Status" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Supplier">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Items" Relationship="Self.FK__Item__Supplier__74AE54BC" FromRole="Supplier" ToRole="Item" />
+    <NavigationProperty Name="Payments" Relationship="Self.FK__Payment__Supplie__6D0D32F4" FromRole="Supplier" ToRole="Payment" />
+  </EntityType>
+  <Association Name="FK__Assignmen__Emplo__7A672E12">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="Employee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Assignmen__Seria__7B5B524B">
+    <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+    <End Role="Assignment" Type="Self.Assignment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Assignment">
+        <PropertyRef Name="SerialNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Branch__70DDC3D8">
+    <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Branch" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__Brand__73BA3083">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Brand" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__Category__76969D2E">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__Connectivi__778AC167">
+    <End Role="Connectivity" Type="Self.Connectivity" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Connectivity">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Connectivity" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Depart__6FE99F9F">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Department" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__Invoice__6C190EBB">
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoice">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="Invoice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__Status__75A278F5">
+    <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__Supplier__74AE54BC">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Payment__Supplie__6D0D32F4">
+    <End Role="Supplier" Type="Self.Supplier" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="Supplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InventoryDBv3Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Assignments" EntityType="Self.Assignment" />
+    <EntitySet Name="Branches" EntityType="Self.Branch" />
+    <EntitySet Name="Brands" EntityType="Self.Brand" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="Connectivities" EntityType="Self.Connectivity" />
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+    <EntitySet Name="Items" EntityType="Self.Item" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="Status" EntityType="Self.Status" />
+    <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+    <AssociationSet Name="FK__Assignmen__Emplo__7A672E12" Association="Self.FK__Assignmen__Emplo__7A672E12">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Assignment" EntitySet="Assignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Assignmen__Seria__7B5B524B" Association="Self.FK__Assignmen__Seria__7B5B524B">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Assignment" EntitySet="Assignments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Branch__70DDC3D8" Association="Self.FK__Employee__Branch__70DDC3D8">
+      <End Role="Branch" EntitySet="Branches" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__Brand__73BA3083" Association="Self.FK__Item__Brand__73BA3083">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__Category__76969D2E" Association="Self.FK__Item__Category__76969D2E">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__Connectivi__778AC167" Association="Self.FK__Item__Connectivi__778AC167">
+      <End Role="Connectivity" EntitySet="Connectivities" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Depart__6FE99F9F" Association="Self.FK__Employee__Depart__6FE99F9F">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__Invoice__6C190EBB" Association="Self.FK__Payment__Invoice__6C190EBB">
+      <End Role="Invoice" EntitySet="Invoices" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__Status__75A278F5" Association="Self.FK__Item__Status__75A278F5">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__Supplier__74AE54BC" Association="Self.FK__Item__Supplier__74AE54BC">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Payment__Supplie__6D0D32F4" Association="Self.FK__Payment__Supplie__6D0D32F4">
+      <End Role="Supplier" EntitySet="Suppliers" />
+      <End Role="Payment" EntitySet="Payments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

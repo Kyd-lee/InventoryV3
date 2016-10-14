@@ -1,0 +1,65 @@
+﻿@model InventoryV3.Models.Assignment
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Assignment</h4>
+        <hr>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Employee">Employee</label>
+            <div class="col-md-10">
+                <select class="form-control valid" id="Employee" name="Employee"><option value="1">John</option>
+                     <option value="2">Alfred</option>
+                     <option value="3">James</option>
+                     <option value="4">Gregie</option>
+                     <option value="5">David</option>
+                </select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="Employee" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="SerialNumber">SerialNumber</label>
+            <div class="col-md-10">
+                <select class="form-control valid" id="SerialNumber" name="SerialNumber"><option value="1">LKJ232393KDS</option>
+                    <option value="2">LSKDJF440LKJ</option>
+                    <option value="3">KDJF9K4K30L</option>
+                    <option value="4">KLDJ48LJ43K3</option>
+                </select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="SerialNumber" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="AssignDate">AssignDate</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field AssignDate must be a date." data-val-required="The AssignDate field is required." id="AssignDate" name="AssignDate" type="datetime" value="">
+                <span class="field-validation-valid text-danger" data-valmsg-for="AssignDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default">
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

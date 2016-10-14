@@ -1,0 +1,69 @@
+﻿@model IEnumerable<InventoryV3.Models.Item>
+@{
+    ViewBag.Title = "Mouse";
+}
+
+<h2>Mouse</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateMouse")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WarrantyExpire)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand1.BrandName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Connectivity1.ConnectivityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status1.StatusName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier1.SupplierName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WarrantyExpire)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand1.BrandName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Connectivity1.ConnectivityName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status1.StatusName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Supplier1.SupplierName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditMouse", new { id = item.ID }) |
+                @Html.ActionLink("Details", "MouseDetails", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "DeleteMouse", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

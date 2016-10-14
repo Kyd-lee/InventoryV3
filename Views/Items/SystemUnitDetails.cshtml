@@ -1,0 +1,97 @@
+﻿@model InventoryV3.Models.Item
+
+@{
+    ViewBag.Title = "System Unit Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Processor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Processor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HDD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HDD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Memory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Memory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OperatingSystem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OperatingSystem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarrantyExpire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarrantyExpire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand1.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand1.BrandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status1.StatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status1.StatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier1.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier1.SupplierName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditSystemUnit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "SystemUnit")
+</p>

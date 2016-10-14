@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="339a4a551a654ea2a6255ec3aacc96f9" Name="Diagram1">
+        <EntityTypeShape EntityType="InventoryV3Model.Assignment" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Branch" Width="1.5" PointX="3.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Brand" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Category" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Connectivity" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Department" Width="1.5" PointX="3.75" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Employee" Width="1.5" PointX="6" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Invoice" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Item" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Payment" Width="1.5" PointX="6" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Status" Width="1.5" PointX="0.75" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="InventoryV3Model.Supplier" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="InventoryV3Model.FK__Assignmen__Emplo__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryV3Model.FK__Assignmen__Seria__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryV3Model.FK__Employee__Branch__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryV3Model.FK__Item__Brand__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryV3Model.FK__Item__Category__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryV3Model.FK__Item__Connectivi__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryV3Model.FK__Employee__Depart__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryV3Model.FK__Payment__Invoice__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryV3Model.FK__Item__Status__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryV3Model.FK__Item__Supplier__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="InventoryV3Model.FK__Payment__Supplie__6D0D32F4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

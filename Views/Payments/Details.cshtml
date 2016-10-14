@@ -1,0 +1,58 @@
+﻿@model InventoryV3.Models.Payment
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Payment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Invoice1.InvoiceNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Invoice1.InvoiceNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier1.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier1.SupplierName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

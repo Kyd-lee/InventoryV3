@@ -1,0 +1,59 @@
+﻿@model InventoryV3.ViewModels.MonitorViewModel
+@{
+    ViewBag.Title = "CreateMonitor";
+}
+
+<h2>Add Monitor</h2>
+
+@using (Html.BeginForm("CreateMonitor","Items"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SerialNumber)
+        @Html.TextBoxFor(m => m.SerialNumber, new { @class = "form-control", autofocus = "autofocus", placeholder = "Serial Number" })
+        @Html.ValidationMessageFor(m => m.SerialNumber)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ModelNumber)
+        @Html.TextBoxFor(m => m.ModelNumber, new { @class = "form-control", placeholder = "Model Number" })
+        @Html.ValidationMessageFor(m => m.ModelNumber)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ScreenSize)
+        @Html.TextBoxFor(m => m.ScreenSize, new { @class = "form-control", placeholder = "Screen Size" })
+        @Html.ValidationMessageFor(m => m.ScreenSize)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.BrandID)
+        @Html.DropDownListFor(m => m.BrandID, new SelectList(Model.Brands, "ID", "BrandName"), "", new {@class= "form-control"})
+        @Html.ValidationMessageFor(m => m.BrandID)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SupplierID)
+        @Html.DropDownListFor(m => m.SupplierID, new SelectList(Model.Suppliers, "ID", "SupplierName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.SupplierID)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ExpieryDate)
+        @Html.TextBoxFor(m => m.ExpieryDate, new { @class = "form-control", placeholder = "Warranty Expiration Date" })
+        @Html.ValidationMessageFor(m => m.ExpieryDate)
+    </div>
+    
+    <button class ="btn btn-primary btn-sm" type="submit">Save</button>
+    <button class ="btn btn-default btn-sm" type ="reset">Cancel</button>
+    <br/>
+}
+<br /><br />
+<div>
+    @Html.ActionLink("Back to List", "Monitor")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<InventoryV3.Models.ApplicationUser>
+@{
+    ViewBag.Title = "ManageRoles";
+}
+
+<h2>ManageRoles</h2>
+
+<div class="spacerBody">
+    <p>&nbsp;</p>
+    @Html.ActionLink("Create New Role", "RolesCreate") | @Html.ActionLink("Roles", "RolesIndex")
+
+    <h2>Add role to user</h2>
+
+    @using (Html.BeginForm("ManageRoles", "Roles"))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class ="message-success">@ViewBag.ResultMessage</div>
+        <p>
+            Username : @Html.TextBox("UserName","",new {@class="form-control"}) <br />
+            Role : @Html.DropDownList("RoleName", ViewBag.Roles as SelectList, new {@class="form-control"})
+
+        </p>
+
+        <input type="submit" class="btn btn-info btn-sm" value="Save" />
+    }
+
+
+
+   </div>

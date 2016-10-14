@@ -1,0 +1,11 @@
+﻿
+
+@{
+    ViewBag.Title = "DrawChart";
+    var myChart = new Chart(width: 500, height: 300, theme: ChartTheme.Green)
+.AddTitle("Product Sales")
+.AddSeries("Default",
+           xValue: Model, xField: "EmpployeeFname",
+           yValues: Model, yFields: "Department")
+.Write("png");
+}

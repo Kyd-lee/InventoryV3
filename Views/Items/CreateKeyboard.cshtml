@@ -1,0 +1,57 @@
+﻿@model InventoryV3.ViewModels.KeyboardViewModel
+@{
+    ViewBag.Title = "Add Keyboard";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("CreateKeyboard", "Items"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SerialNumber)
+        @Html.TextBoxFor(m => m.SerialNumber, new { @class = "form-control", autofocus = "autofocus", placeholder = "Serial Number" })
+        @Html.ValidationMessageFor(m => m.SerialNumber)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ModelNumber)
+        @Html.TextBoxFor(m => m.ModelNumber, new { @class = "form-control", placeholder = "Model Number" })
+        @Html.ValidationMessageFor(m => m.ModelNumber)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConnectivityID)
+        @Html.DropDownListFor(m => m.ConnectivityID, new SelectList(Model.Connectivities, "ID", "ConnectivityName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.ConnectivityID)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.BrandID)
+        @Html.DropDownListFor(m => m.BrandID, new SelectList(Model.Brands, "ID", "BrandName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BrandID)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StatusID)
+        @Html.DropDownListFor(m => m.StatusID, new SelectList(Model.Statuses, "ID", "StatusName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StatusID)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.SupplierID)
+        @Html.DropDownListFor(m => m.SupplierID, new SelectList(Model.Suppliers, "ID", "SupplierName"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.SupplierID)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ExpireDate)
+        @Html.TextBoxFor(m => m.ExpireDate, new { @class = "form-control", placeholder = "Warranty Expiration Date" })
+        @Html.ValidationMessageFor(m => m.ExpireDate)
+    </div>
+
+    <button type="submit" class="btn btn-sm btn-primary">Save</button>
+    <button type="reset" class="btn btn-sm btn-default">Cancel</button>
+
+}
+<br /><br />
+<div>
+    @Html.ActionLink("Back to List", "Keyboard")
+</div>

@@ -1,0 +1,74 @@
+﻿@model InventoryV3.Models.Item
+
+@{
+    ViewBag.Title = "Monitor Details";
+}
+
+<h2>Monitor Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScreenSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScreenSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarrantyExpire)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarrantyExpire)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand1.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand1.BrandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status1.StatusName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status1.StatusName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier1.SupplierName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier1.SupplierName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditMonitor", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Monitor")
+</p>
+
